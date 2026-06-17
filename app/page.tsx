@@ -1,108 +1,169 @@
 import Image from "next/image"
 import Link from "next/link"
 
-const links = [
-  {
-    title: "Notes from Eurasia",
-    href: "https://medium.com/@marcaliagaborras",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-        <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Quant Projects",
-    href: "https://drive.google.com/drive/folders/1TmvOOlJIKsT7H5DHjyTpBrYPP0uY4S4L?usp=sharing",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Valuations",
-    href: "https://drive.google.com/drive/folders/1jz7B5NEn4niZ8868bzHenOJf8L9V1wuv?usp=sharing",
-  },
+const publications = [
   {
     title: "The Revaluation of Bitcoin Miners: Right Time, Right Place",
+    category: "Research Paper",
+    date: "2026",
+    preview:
+      "Analysis of valuation dynamics in publicly traded Bitcoin miners and their relationship to energy markets, capital cycles, and digital infrastructure.",
     href: "https://zenodo.org/records/20475180",
   },
   {
-    title: "LinkedIn",
-    href: "https://www.linkedin.com/in/marc-aliaga/",
-    icon: (
-      <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
-        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-      </svg>
-    ),
+    title: "Is Russia Still an Energy Superpower?",
+    category: "Geopolitics",
+    date: "2026",
+    preview:
+      "As Russia pivots from Europe to Asia, can it preserve its energy influence? A deep dive into sanctions, gas exports, LNG development, and strategic realignment.",
+    href: "https://medium.com/@marcaliagaborras/the-role-of-russia-and-cis-countries-on-the-global-energy-chessboard-fc09f49926ed",
   },
+  {
+    title: "Is Russia really sovereign over the price of its own oil?",
+    category: "Geopolitics |Oil and gas",
+    date: "2026",
+    preview:
+      "how the shift from state-controlled production to globalized financial derivatives has left Urals crude bound to international benchmarks and vulnerable to external macroeconomic cycles.",
+    href: "https://medium.com/@marcaliagaborras/is-russia-really-sovereign-over-the-price-of-its-own-oil-5a5f5353eac4",
+  },
+]
+
+const externalLinks = [
+  { title: "Medium", href: "https://medium.com/@marcaliagaborras" },
+  { title: "Quantitative Models", href: "https://drive.google.com/drive/folders/1TmvOOlJIKsT7H5DHjyTpBrYPP0uY4S4L?usp=sharing" },
+  { title: "LinkedIn", href: "https://www.linkedin.com/in/marc-aliaga/" },
 ]
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-background flex items-center justify-center p-6 md:p-12">
-      <div className="flex flex-col md:flex-row items-center md:items-start gap-10 md:gap-16 max-w-4xl">
-        {/* Left Column - Photo & Links */}
-        <div className="flex flex-col items-center gap-5">
-          <div className="relative w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-foreground/10">
-            <Image
-              src="/profile.jpg"
-              alt="Marc Aliaga"
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
+    <main className="min-h-screen bg-white text-black font-sans selection:bg-neutral-200">
+      <div className="max-w-4xl mx-auto px-6 py-12 flex flex-col items-center">
+        
+        {/* HEADER LOGO - Styled like chomsky.info */}
+        <header className="w-full text-center border-b-2 border-black pb-4 mb-8">
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-wider uppercase font-sans">
+            Marc Aliaga
+          </h1>
+          <p className="text-xs tracking-[0.2em] uppercase font-medium mt-1 text-neutral-600">
+            International Affairs • Geopolitics • Energy Markets
+          </p>
+        </header>
+
+        {/* THREE-COLUMN HERO SECTION (Inspired by image_54c206.jpg) */}
+        <section className="w-full grid grid-cols-1 md:grid-cols-[1fr_320px_1fr] gap-8 items-center text-center my-6">
           
-          {/* Links - Prominent below photo */}
-          <div className="grid grid-cols-2 gap-2 w-full">
-            {links.map((link) => (
-              <Link
-                key={link.title}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-foreground text-background hover:bg-foreground/80 transition-colors"
-              >
-                {link.icon}
-                <span className="text-xs font-medium">{link.title}</span>
+          {/* Left Navigation Column */}
+          <div className="flex flex-col space-y-4 text-base font-bold uppercase tracking-wide md:text-right">
+            <a href="#about" className="hover:underline">About</a>
+            <a href="#research" className="hover:underline">Articles</a>
+            {externalLinks.slice(0, 1).map((link) => (
+              <Link key={link.title} href={link.href} target="_blank" className="hover:underline">
+                {link.title}
               </Link>
             ))}
           </div>
-        </div>
 
-        {/* Right Column - Name & Bio */}
-        <div className="flex flex-col gap-5 text-center md:text-left max-w-md">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-serif font-light tracking-tight text-foreground">
-              Marc Aliaga
-            </h1>
-            <p className="mt-2 text-sm uppercase tracking-widest text-muted-foreground/70">
-              Analyst & Investor
+          {/* Central Framed Profile Image */}
+          <div className="flex flex-col items-center">
+            <p className="text-sm font-bold tracking-widest uppercase mb-3 text-neutral-800">
+              RECENT UPDATES
             </p>
+            <div className="relative w-64 h-80 border-4 border-black bg-neutral-100 p-1 shadow-sm">
+              <div className="relative w-full h-full bg-neutral-200">
+                <Image
+                  src="/profile.jpg"
+                  alt="Marc Aliaga"
+                  fill
+                  priority
+                  className="object-cover filter grayscale contrast-115"
+                />
+              </div>
+            </div>
+            <span className="text-[10px] text-neutral-500 italic mt-2 block text-center">
+              photo credit: Portrait Archive
+            </span>
           </div>
 
-          <div className="space-y-4 text-muted-foreground leading-relaxed">
-            <p>
-              Spanish analyst and investor focused on global macro, asset management, and geopolitical risk. 
-              Currently specializing in International Finance at MGIMO University, with a focus on energy markets, 
-              commodity finance, cross-border capital flows, and the strategic trade corridors linking Europe, 
-              Russia, Central Asia, and the Far East.
-            </p>
-            <p className="text-sm">
-              His work combines quantitative analysis, macro research, and geopolitical intelligence to study 
-              market structure, supply chains, sanctions regimes, and global trade dynamics. With a technical 
-              background in low-level systems, C, and Python, he approaches financial and commodity markets 
-              through a systematic and data-driven lens.
-            </p>
-            <p className="text-sm">
-              He writes publicly on global macro, energy security, industrial policy, freight markets, CBAM, 
-              and Eurasian trade flows, while developing open-source quantitative models and research frameworks 
-              focused on macro and cross-asset investing.
-            </p>
+          {/* Right Navigation Column */}
+          <div className="flex flex-col space-y-4 text-base font-bold uppercase tracking-wide md:text-left">
+            {externalLinks.slice(1).map((link) => (
+              <Link key={link.title} href={link.href} target="_blank" className="hover:underline">
+                {link.title}
+              </Link>
+            ))}
+            <a href="mailto:#" className="hover:underline">Contact</a>
           </div>
-        </div>
+        </section>
+
+        <hr className="w-full border-t border-neutral-300 my-10" />
+
+        {/* ABOUT / BIOGRAPHY SECTION */}
+        <section id="about" className="w-full max-w-2xl mx-auto text-center md:text-justify space-y-6 text-sm leading-7 text-neutral-800">
+          <h2 className="text-xl font-bold uppercase tracking-wider text-center border-b border-black pb-1 mb-4">
+            Biography Framework
+          </h2>
+          <p>
+            I'm Marc, a Spanish student focused on international finance, geopolitical risk, energy markets, and global trade. 
+            Currently specializing in International Finance at MGIMO University, my work explores the 
+            intersection of economics, statecraft, and strategic competition across Eurasia.
+          </p>
+          <p>
+            By merging my foundational education under the European academic framework with my current specialization in 
+            Russia, I have developed a unique, 360 perspective on the global economy. This dual-lens approach allows 
+            me to analyze energy security, physical commodity markets, international sanctions, industrial policy, and 
+            transport corridors with a grounded understanding of both European and Eurasian strategic realities.
+          </p>
+          <p>
+            I actively author and publish detailed macro-geopolitical essays and market reports. 
+            These analytical frameworks dissect underlying structural dependencies, state-driven economic re-alignments, 
+            and systemic risks within volatile global markets—providing executives and decision-makers with the objective, 
+            tridimensional oversight required to anticipate shifts in the international landscape.
+          </p>
+        </section>
+
+        <hr className="w-full border-t border-neutral-300 my-10" />
+
+        {/* SELECTED RESEARCH SECTION */}
+        <section id="research" className="w-full max-w-2xl">
+          <h2 className="text-2xl font-bold uppercase tracking-wider text-center mb-8 border-b border-black pb-2">
+            Selected Research
+          </h2>
+          
+          <div className="space-y-10">
+            {publications.map((article) => (
+              <article key={article.title} className="border-b border-neutral-200 pb-8 last:border-0">
+                <Link href={article.href} className="group block text-center md:text-left">
+                  <h3 className="text-xl font-bold text-neutral-900 group-hover:underline leading-tight">
+                    {article.title}
+                  </h3>
+                </Link>
+                
+                <p className="mt-2 text-[11px] uppercase tracking-wider text-neutral-500 text-center md:text-left font-semibold">
+                  {article.category} • {article.date}
+                </p>
+                
+                <p className="mt-3 text-sm leading-6 text-neutral-700 text-justify">
+                  {article.preview}
+                </p>
+                
+                <div className="mt-4 text-center md:text-left">
+                  <Link href={article.href} className="text-xs font-bold uppercase tracking-wider border border-black px-3 py-1 hover:bg-black hover:text-white transition-colors">
+                    Read Research →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        {/* FOOTER */}
+        <footer className="w-full text-center border-t-2 border-black pt-6 mt-16">
+          <p className="text-xl font-black tracking-wider uppercase">
+            MARCALIAGA.com
+          </p>
+          <div className="mt-2 h-0.5 w-16 bg-black mx-auto" />
+        </footer>
+
       </div>
     </main>
   )
