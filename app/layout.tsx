@@ -3,13 +3,23 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+// Configuración óptima de fuentes tipográficas
+const geistSans = Geist({ 
+  subsets: ["latin"],
+  variable: "--font-geist-sans",
+});
 
+const geistMono = Geist_Mono({ 
+  subsets: ["latin"],
+  variable: "--font-geist-mono",
+});
+
+// Metadatos estratégicos alineados con tu perfil directivo
 export const metadata: Metadata = {
-  title: 'Personal Portfolio',
-  description: 'Personal page with links to my articles, projects, and professional profiles',
-  generator: 'v0.app',
+  title: 'Marc Aliaga | From Spain to Russia',
+  description: 'Executive research briefings, macro-geopolitical essays, and physical commodity market intelligence framework.',
+  keywords: ['International Finance', 'Geopolitical Risk', 'Commodity Trading', 'Eurasian Markets', 'Energy Security'],
+  authors: [{ name: 'Marc Aliaga' }],
   icons: {
     icon: [
       {
@@ -35,8 +45,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
+    <html lang="en" className="scroll-smooth">
+      {/* 
+        Inyectamos las variables tipográficas de Geist directamente en las clases,
+        asegurando que antialiased limpie los textos para pantallas de alta resolución.
+      */}
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased bg-white text-black`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
